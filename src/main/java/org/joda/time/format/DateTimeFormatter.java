@@ -689,7 +689,7 @@ public class DateTimeFormatter {
      * @throws IllegalArgumentException if the instant is null
      * @throws IllegalArgumentException if any field is out of range
      */
-    public int parseInto(ReadWritableInstant instant, String text, int position) {
+    public int parseInto(ReadWritableInstant instant, CharSequence text, int position) {
         DateTimeParser parser = requireParser();
         if (instant == null) {
             throw new IllegalArgumentException("Instant must not be null");
@@ -725,7 +725,7 @@ public class DateTimeFormatter {
      * @throws UnsupportedOperationException if parsing is not supported
      * @throws IllegalArgumentException if the text to parse is invalid
      */
-    public long parseMillis(String text) {
+    public long parseMillis(CharSequence text) {
         DateTimeParser parser = requireParser();
         
         Chronology chrono = selectChronology(iChrono);
@@ -755,7 +755,7 @@ public class DateTimeFormatter {
      * @throws IllegalArgumentException if the text to parse is invalid
      * @since 2.0
      */
-    public LocalDate parseLocalDate(String text) {
+    public LocalDate parseLocalDate(CharSequence text) {
         return parseLocalDateTime(text).toLocalDate();
     }
 
@@ -773,7 +773,7 @@ public class DateTimeFormatter {
      * @throws IllegalArgumentException if the text to parse is invalid
      * @since 2.0
      */
-    public LocalTime parseLocalTime(String text) {
+    public LocalTime parseLocalTime(CharSequence text) {
         return parseLocalDateTime(text).toLocalTime();
     }
 
@@ -791,7 +791,7 @@ public class DateTimeFormatter {
      * @throws IllegalArgumentException if the text to parse is invalid
      * @since 2.0
      */
-    public LocalDateTime parseLocalDateTime(String text) {
+    public LocalDateTime parseLocalDateTime(CharSequence text) {
         DateTimeParser parser = requireParser();
         
         Chronology chrono = selectChronology(null).withUTC();  // always use UTC, avoiding DST gaps
@@ -830,7 +830,7 @@ public class DateTimeFormatter {
      * @throws UnsupportedOperationException if parsing is not supported
      * @throws IllegalArgumentException if the text to parse is invalid
      */
-    public DateTime parseDateTime(String text) {
+    public DateTime parseDateTime(CharSequence text) {
         DateTimeParser parser = requireParser();
         
         Chronology chrono = selectChronology(null);
@@ -869,7 +869,7 @@ public class DateTimeFormatter {
      * @throws UnsupportedOperationException if parsing is not supported
      * @throws IllegalArgumentException if the text to parse is invalid
      */
-    public MutableDateTime parseMutableDateTime(String text) {
+    public MutableDateTime parseMutableDateTime(CharSequence text) {
         DateTimeParser parser = requireParser();
         
         Chronology chrono = selectChronology(null);

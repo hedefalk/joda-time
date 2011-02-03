@@ -809,7 +809,7 @@ public class DateTimeFormat {
             return 40;  // guess
         }
 
-        public int parseInto(DateTimeParserBucket bucket, String text, int position) {
+        public int parseInto(DateTimeParserBucket bucket, CharSequence text, int position) {
             DateTimeParser p = getFormatter(bucket.getLocale()).getParser();
             return p.parseInto(bucket, text, position);
         }

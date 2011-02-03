@@ -328,7 +328,7 @@ public class DateTimeParserBucket {
      * @throws IllegalArgumentException if any field is out of range
      * @since 1.3
      */
-    public long computeMillis(boolean resetFields, String text) {
+    public long computeMillis(boolean resetFields, CharSequence text) {
         SavedField[] savedFields = iSavedFields;
         int count = iSavedFieldsCount;
         if (iSavedFieldsShared) {
